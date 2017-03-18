@@ -1,3 +1,5 @@
 six>=1.7.0
 requests
 cherrypy
+oslo.log
+oslo.config
