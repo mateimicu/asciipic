@@ -5,6 +5,7 @@ import os
 import cherrypy
 
 from asciipic.api import base as api_base
+from asciipic.api import numeric
 from asciipic import config as asciipic_config
 
 CONFIG = asciipic_config.CONFIG
@@ -14,7 +15,9 @@ class Root(api_base.BaseAPI):
 
     """The / endpoint for the Asciipic API."""
 
-    resources = []
+    resources = [
+        ("numeric", numeric.NumericEndpoint),
+    ]
 
     @classmethod
     def config(cls):
