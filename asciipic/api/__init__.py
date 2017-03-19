@@ -20,12 +20,12 @@ class Root(api_base.BaseAPI):
     ]
 
     @classmethod
-    def config(cls):
+    def config(cls, host=CONFIG.api.host, port=CONFIG.api.port):
         """Prepare the configurations."""
         return {
             'global': {
-                'server.socket_host': CONFIG.api.host,
-                'server.socket_port': CONFIG.api.port,
+                'server.socket_host': host,
+                'server.socket_port': port,
                 'environment': CONFIG.api.environment,
                 'log.screen': True,
                 'log.error_file': os.path.join(CONFIG.log_dir or "",
