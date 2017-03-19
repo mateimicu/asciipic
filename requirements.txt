@@ -3,3 +3,4 @@ requests
 cherrypy
 oslo.log
 oslo.config
+prettytable
