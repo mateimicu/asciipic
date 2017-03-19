@@ -34,3 +34,7 @@ def main():
     asciipic = AsciipicCli(sys.argv[1:])
     asciipic.run()
     return asciipic.result
+
+
+if __name__ == "__main__":
+    main()
