@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CF059841-8C89-5957-1D5A-F407D80A9B0D" name="USERS">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 11:28:39 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="5C2FB185-06A8-2E51-157E-666BC4C934FA">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 11:31:04 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USERNAME" id="649139F1-7CF0-2C09-4130-64059C1CDABB">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 11:31:04 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL" id="9A8D23F9-0337-1A92-0EC0-666FC8CD038E">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 11:47:06 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>64</dataTypeSize>
+<ownDataTypeParameters>64,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASSWORD" id="7CF0E6E1-59D1-3977-5978-D7572EA30EC2">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 11:49:29 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>256</dataTypeSize>
+<ownDataTypeParameters>256,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SALT" id="66C580F3-0E06-CFB3-A192-4DE01054D823">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 11:49:29 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8</dataTypeSize>
+<ownDataTypeParameters>8,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IS_CONFIRMED" id="698ADA79-D885-C801-18D7-889EE85B69A6">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 11:53:32 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IS_ACTIVE" id="106B796F-EF51-1014-C85E-70ED1ADDF112">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 11:52:08 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="118A4594-12E5-EE8D-23F3-CC93EA5D605F" name="USERS_PK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 12:05:51 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5C2FB185-06A8-2E51-157E-666BC4C934FA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="0409651B-7BAF-4F3F-436E-AD19141270F2" containerWithKeyObject="FA5F66B3-3E32-6C28-F8D5-E036CC19DE66" localFKIndex="D606E485-4878-76B3-B639-63D59AA17581" name="J_LOGOUT_JOURNALIZE_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:49:37 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<referredTableLongName>JOURNALIZE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>44079001-571B-153F-9814-353F43C3279F</referredTableID>
+<keyObject>D6AAA747-354F-8AA9-E76C-D93337473E6E</keyObject>
+<referredKeyID>D6AAA747-354F-8AA9-E76C-D93337473E6E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

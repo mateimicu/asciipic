@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C4ECBC72-6FEA-09EE-FF1D-4306C945E8D9" containerWithKeyObject="26401EAE-CB4C-ACAE-105C-2D3D28D03AC1" localFKIndex="A65989E7-D84B-53F0-BF74-469E0FC0C4AE" name="SAVED_IMAGES_IMAGES_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:57:00 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<referredTableLongName>IMAGES</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>71CF45BC-CCB0-8A9C-CD4B-B97ADB69E997</referredTableID>
+<keyObject>2E105C84-8B71-00EE-A6F8-44C46BE2704F</keyObject>
+<referredKeyID>2E105C84-8B71-00EE-A6F8-44C46BE2704F</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

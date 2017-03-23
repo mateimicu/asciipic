@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="577B6DF7-7818-E583-D3DA-E994A905DFBE" name="TAGS">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:37:26 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TAG" id="79DF7C33-D1FD-5A96-4C7B-AB917E42B71D">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:37:26 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IMAGE_ID" id="A2B803D9-15BA-E0C0-CDF3-3897BAB67283">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:37:26 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_IMAGESv1_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="F463A024-09DA-84EB-6FCA-0286A94FA21B" referredColumn="F72B9FA9-C0C4-3211-3264-A08905DF2A96"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A5FB2488-BDC0-30F4-2874-802F5F6E6F54" name="TAGS_PK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:37:26 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A2B803D9-15BA-E0C0-CDF3-3897BAB67283"/>
+<colUsage columnID="79DF7C33-D1FD-5A96-4C7B-AB917E42B71D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FA717219-83BD-0C2E-1D50-149D05861277" name="TAGS_IMAGES_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:56:43 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A2B803D9-15BA-E0C0-CDF3-3897BAB67283"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
