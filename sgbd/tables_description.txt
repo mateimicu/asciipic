@@ -1,0 +1,79 @@
+﻿Rolul tabelelor in aplicatie:
+USERS - este tabela in care se vor pastra datele pentru orice user inregistrat pentru a verifica daca autentificarile sunt valide
+	  - campul ID este id-ul unic(cheie primara) a fiecarui user
+	  - campul USERNAME este username-ul ales de clientul care se va inregistra
+	  - campul EMAIL este email-ul unic folosit pentru inregistrarea user-ului
+	  - campul PASSWORD este parola pe care user-ul o va alege pentru a se autentifica in cont-ul personal
+	  - campul IS_ACTIVE este un camp de tip Boolean care va retine daca user-ul mai este inregistrat(1) sau si-a sters contul(0)
+	  - campul IS_CONFIRMED este un camp de tip Boolean care va fi folosit pentru a verifica daca user-ul a confirmat inregistarea contului(1). Pana user-ul nu confirma inregistrarea, campul va avea valoarea 0.
+	  - campul SALT ajuta la criptarea sigura a parolei si este generat random la fiecare user
+
+IMAGES - este tabela in care se vor pastra link-urile si metadatele aferente imaginii
+	   - campul ID este id-ul unic(cheie primara) a fiecarui link
+	   - campul URL este link-ul aferent imaginii, locul unde va fi gasita
+	   - campul WIDTH reprezinta latimea imaginii in pixeli
+	   - campul HEIGHT reprezinta inaltimea imaginii in pixeli
+	   - campul CRAWL_DATE reprezinta data la care s-a facut upload in baza de date a imaginii respective
+	   - campul POST_DATE reprezinta data la care a fost postata imaginea pe retelele de socializare
+	   - campul IS_SAVED este un camp de tip Boolean care este setat ca fiind 1 daca poza este salvata in tabela SAVED_IMAGES si 0 in caz contrar
+
+SAVED_IMAGES - este tabela in care se vor retine imaginile care sunt salvate
+			 - campul IMAGE_ID este id-u unic din tabela IMAGES a pozelor care sunt salvate
+			 - campul DATA este un camp de tip image in care vor fi stocate imaginile salvate
+
+TAGS - este tabela in care se retin tagurile fiecarei imagini
+	 - campul TAG este tagul imaginii
+	 - campul IMAGE_ID este id-ul unic din tabela IMAGES a imaginii
+
+JOBS - este tabela care retine job-urile din background
+	 - campul ID este id-ul unic(cheie primara) a fiscarui job creat
+	 - campul POST_DATE este data crearii job-ului
+	 - campul START_DATE este data inceperii functionarii job-ului
+	 - campul FINISH_DATE este data finalizarii job-ului
+
+JOURNALIZE - este tabela care se ocupa cu pastrarea actiunilor efectuate care vor servi la statisticile facute ulterior
+		   - campul ID este id-ul unic(cheie primara) a fiecarei inregistrari
+		   - campul ACTION este campul in care se va retine tipul de actiune care se va retine in tabela (ex:login, register, search, crawl, etc)
+		   - campul ACTION_DATE este data la care se efectueaza aceasta actiune
+
+J_LOGIN - este tabela in care se retin informatiile despre logarile existente in sistem
+		- campul JOURNALIZE_ID este id-ul din tabela JOURNALIZE care corespunde actiunii
+		- campul USER_ID este id-ul userului care efectueaza autentificarea in sistem
+		- campul IP este IP-ul corespunzator user-ului care efectueaza autentificarea
+		- campul USER_AGENT reprezinta tipul de browser folosit de user-ul care efectueaza autentificarea
+
+J_REGISTER - este tabela in care se retin informatiile despre inregistrarile noi in baza de date USERS
+		   - campul JOURNALIZE_ID este id-ul din tabela JOURNALIZE care corespunde actiunii
+		   - campul USER_ID este id-ul user-ului care efectueaza inregistrarea
+		   - campul IP este IP-ul corespunzator user-ului care efectueaza inregistrarea
+
+J_LOGOUT - este tabela in care se retin informatiile despre deconectarile user-ilor din sistem
+		 - campul JOURNALIZE_ID este id-ul din tabela JOURNALIZE care corespunde actiunii
+		 - campul USER_ID este id-ul user-ului care efectueaza deconectarea din sistem
+		 - campul CAUSE reprezinta cauza deconectarii din sistem
+
+J_SEARCH - este tabela in care se retin informatiile despre cautarile locale a imaginilor(in baza de date IMAGES)
+		 - campul JOURNALIZE_ID este id-ul din tabela JOURNALIZE care corespund actiunii
+		 - campul USER_ID este id-ul user-ului care efectueaza cautarea
+		 - campul TAG reprezinta tag-ul dupa care a fost cautata imaginea
+		 - campul POST_DATE reprezinta data la care imaginea a fost postata pe reteaua de socializare
+		 - campul WIDTH reprezinta latimea imaginii in pixeli
+		 - campul HEIGHT reprezinta inaltimea imaginii in pixeli
+
+J_CRAWL - este tabela in care se retin informatiile despre cautarile de pe retelele de socializare a imaginilor
+	   - campul JOURNALIZE_ID este id-ul din tabela JOURNALIZE care corespund actiunii
+	   - campul USER_ID este id-ul user-ului care efectueaza cautarea
+	   - campul JOB_ID reprezinta id-u job-ului care se ocupa cu cautarea imaginii
+	   - campul TAG reprezinta tag-ul dupa care a fost cautata imaginea
+	   - campul POST_DATE reprezinta data la care imaginea a fost postata pe reteaua de socializare
+	   - campul WIDTH reprezinta latimea imaginii in pixeli
+	   - campul HEIGHT reprezinta inaltimea imaginii in pixeli
+
+J_FILTERS - este tabela in care se retin informatii despre aplicarile de filtre pe imagini
+		  - campul JOURNALIZE_ID este id-ul din tabela JOURNALIZE care corespund actiunii
+		  - campul USER_ID este id-ul user-ului care efectueaza filtrarea 
+		  - campul IMAGE_ID este id-ul imaginii prelucrate
+		  - campul TIP reprezinta tipul filtrului aplicat 
+
+
+
