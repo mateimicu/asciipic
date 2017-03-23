@@ -196,5 +196,99 @@ begin
   end loop;
 
   --populate the rest of the tables with some data
-  --TODO: Alexandra Folvaiter
+   
+  --populate JOBS table
+  insert into jobs values(1,sysdate,sysdate,sysdate);
+  insert into jobs values(2,sysdate,sysdate,sysdate);
+  insert into jobs values(3,sysdate,sysdate,sysdate);
+  insert into jobs values(4,sysdate,sysdate,sysdate);
+  insert into jobs values(5,sysdate,sysdate,sysdate);
+
+  --populate JOURNALIZE table
+  insert into journalize values(1,'login',sysdate);
+  insert into journalize values(2,'login',sysdate);
+  insert into journalize values(3,'login',sysdate);
+  insert into journalize values(4,'login',sysdate);
+  insert into journalize values(5,'login',sysdate);
+  insert into journalize values(6,'register',sysdate);
+  insert into journalize values(7,'register',sysdate);
+  insert into journalize values(8,'register',sysdate);
+  insert into journalize values(9,'register',sysdate);
+  insert into journalize values(10,'register',sysdate);
+  insert into journalize values(11,'logout',sysdate);
+  insert into journalize values(12,'logout',sysdate);
+  insert into journalize values(13,'logout',sysdate);
+  insert into journalize values(14,'logout',sysdate);
+  insert into journalize values(15,'logout',sysdate);
+  insert into journalize values(16,'search',sysdate);
+  insert into journalize values(17,'search',sysdate);
+  insert into journalize values(18,'search',sysdate);
+  insert into journalize values(19,'search',sysdate);
+  insert into journalize values(20,'search',sysdate);
+  insert into journalize values(21,'crawl',sysdate);
+  insert into journalize values(22,'crawl',sysdate);
+  insert into journalize values(23,'crawl',sysdate);
+  insert into journalize values(24,'crawl',sysdate);
+  insert into journalize values(25,'crawl',sysdate);
+  insert into journalize values(26,'filters',sysdate);
+  insert into journalize values(27,'filters',sysdate);
+  insert into journalize values(28,'filters',sysdate);
+  insert into journalize values(29,'filters',sysdate);
+  insert into journalize values(30,'filters',sysdate);
+
+  --populate SAVED_IMAGES table
+  insert into saved_images values(60192,utl_raw.cast_to_raw('some magic here'));
+  insert into saved_images values(45,utl_raw.cast_to_raw('some magic here'));
+  insert into saved_images values(987,utl_raw.cast_to_raw('some magic here'));
+  insert into saved_images values(709,utl_raw.cast_to_raw('some magic here'));
+  insert into saved_images values(245,utl_raw.cast_to_raw('some magic here'));
+
+  --populate TAGS table
+  insert into tags values(6565,'maria');
+  insert into tags values(76,'maria');
+  insert into tags values(98,'maria');
+  insert into tags values(1243,'maria');
+  insert into tags values(6033,'maria');
+
+  --populate J_CRAWL table
+  insert into j_crawl values(21, 456, 5, 'maria', sysdate,292,888);
+  insert into j_crawl values(22, 5699, 4, 'ion', sysdate,192,78);
+  insert into j_crawl values(23, 3000, 3, 'toamna', sysdate,56,1000);
+  insert into j_crawl values(24, 9981, 2, 'primavara', sysdate,1000,456);
+  insert into j_crawl values(25, 78, 1, 'mama', sysdate,657,888);
+
+  --populate J_FILTERS table
+  insert into j_filters values(26, 6577, 9832, 'resize');
+  insert into j_filters values(27, 76, 887, 'Color Correction ');
+  insert into j_filters values(28, 20, 14, 'black and white');
+  insert into j_filters values(29, 4413, 403, 'yellowish');
+  insert into j_filters values(30, 3, 654, 'resize');
+
+  --populate J_LOGIN table
+  insert into j_login values(1, 6447,'123.244.0.1','firefox');
+  insert into j_login values(2, 44,'123.244.0.1','chrom');
+  insert into j_login values(3, 891,'13.98.90.102','opera');
+  insert into j_login values(4, 6447,'34.27.56.199','explorer');
+  insert into j_login values(5, 6447,'99.11.40.10','firefox');
+
+  --populate J_LOGOUT table
+  insert into j_logout values(11,6577,'natural');
+  insert into j_logout values(12,87,'artificial');
+  insert into j_logout values(13,90,'artificial');
+  insert into j_logout values(14,3536,'natural');
+  insert into j_logout values(15,7665,'natural');
+
+  --populate J_REGISTER table
+  insert into j_register values(6, 88, '89.0.90.10');
+  insert into j_register values(7, 745, '199.30.234.87');
+  insert into j_register values(8, 1029, '133.67.12.34');
+  insert into j_register values(9, 6577, '24.88.177.68');
+  insert into j_register values(10, 8799, '78.90.172.99');
+
+  --populate J_SEARCH table
+  insert into j_search values(16, 876, 'maria', sysdate, 166,300);
+  insert into j_search values(17, 7668, 'ion', sysdate, 89,100);
+  insert into j_search values(18, 1234, 'mama', sysdate, 1000,588);
+  insert into j_search values(19, 34, 'toamna', sysdate, 500,300);
+  insert into j_search values(20, 8789, 'primavara', sysdate, 100,400);
 end;  
