@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9D66E37E-5032-5520-D400-74FA1B4D1A40" name="JOBS">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:39:29 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="06E56E7E-0FBB-AEF5-B1B1-DFEC1B85D8D8">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:39:29 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_IMAGESv1_ID</notNullConstraintName>
+</Column>
+<Column name="POST_DATE" id="6A6B027F-E3D2-98B8-D5F7-5DAAB63C47A3">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:39:29 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="START_DATE" id="252F1C40-D3E4-4C49-C7A3-266330330DBD">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:39:29 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FINISH_DATE" id="5BD3B787-A5C3-3E1D-F2B5-DAF614E2A7A7">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:39:29 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B3F6F0E8-DABC-895F-5191-0DB010BD0D42" name="JOBS_PK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:39:29 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="06E56E7E-0FBB-AEF5-B1B1-DFEC1B85D8D8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

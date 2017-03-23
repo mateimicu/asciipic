@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C43C642D-E69E-E971-ABF1-965E7AD48442" name="J_FILTERS">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:18:28 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="JOURNALIZE_ID" id="61824452-B98A-5825-EB2D-74FB5FD7A2F5">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:18:28 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_FILTERS_JOURNALIZE_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="CEB3EC91-2A5F-50D5-C083-CBE8AA180EC2" referredColumn="8470B97A-1A27-A108-95EA-63790C2674F3"/>
+</associations>
+</Column>
+<Column name="USER_ID" id="9592BA91-1712-B95A-C840-D74F5EB3BF51">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:18:28 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_FILTERS_USER_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="E88632CD-2BE5-63A2-BE16-0B71755006CB" referredColumn="5C2FB185-06A8-2E51-157E-666BC4C934FA"/>
+</associations>
+</Column>
+<Column name="IMAGE_ID" id="ED27C3F7-6BF8-BBFD-7761-06FF946ECE15">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:18:28 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_FILTERS_IMAGE_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="0D3B28CD-47D4-70AD-49D5-1C028762163B" referredColumn="F72B9FA9-C0C4-3211-3264-A08905DF2A96"/>
+</associations>
+</Column>
+<Column name="TYPE" id="D35F6F6F-739A-5D53-4472-043C1B8B2A1D">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:18:28 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_FILTERS_TYPE</notNullConstraintName>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E87A7280-79FE-FE68-2086-9DF3EE2A2C31" name="J_FILTERS_PK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:18:28 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="61824452-B98A-5825-EB2D-74FB5FD7A2F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8A7BA662-1AF5-2F56-FC41-F88A4147FBCF" name="J_FILTERS_USERS_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:56:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9592BA91-1712-B95A-C840-D74F5EB3BF51"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="078B8F60-D664-A019-B1B0-7BD6024A4CB8" name="J_FILTERS_JOURNALIZE_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:56:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="61824452-B98A-5825-EB2D-74FB5FD7A2F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9BA443EB-89D9-1B5B-9580-5BA1C103CEEE" name="J_FILTERS_IMAGES_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:56:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ED27C3F7-6BF8-BBFD-7761-06FF946ECE15"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

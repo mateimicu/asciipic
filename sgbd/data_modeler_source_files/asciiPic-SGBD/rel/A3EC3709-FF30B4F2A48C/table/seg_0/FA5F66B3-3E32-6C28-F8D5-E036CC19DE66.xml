@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FA5F66B3-3E32-6C28-F8D5-E036CC19DE66" name="J_LOGOUT">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:55:39 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="JOURNALIZE_ID" id="3410B252-C460-B184-4D0C-4BC8FD299785">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:55:39 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_LOGOUT_JOURNALIZE_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="0409651B-7BAF-4F3F-436E-AD19141270F2" referredColumn="8470B97A-1A27-A108-95EA-63790C2674F3"/>
+</associations>
+</Column>
+<Column name="USER_ID" id="58047A01-50D6-607E-223B-A1A29D9CFF2D">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:55:39 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_LOGOUT_USER_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="41655D35-0A3D-A784-5A89-066D1F4C39BF" referredColumn="5C2FB185-06A8-2E51-157E-666BC4C934FA"/>
+</associations>
+</Column>
+<Column name="CAUSE" id="75D4C6FC-4E3B-39B3-D36F-98D4CFC68DF7">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:55:39 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_LOGOUT_CAUSE</notNullConstraintName>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8DA1BDAB-4A45-FDB2-5FDD-8CDD744D114A" name="J_LOGOUT_PK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:55:39 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3410B252-C460-B184-4D0C-4BC8FD299785"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D606E485-4878-76B3-B639-63D59AA17581" name="J_LOGOUT_JOURNALIZE_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:49:37 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3410B252-C460-B184-4D0C-4BC8FD299785"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="714DEBEA-AFCF-BF0B-F3E6-2FC8631F601B" name="J_LOGOUT_USERS_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:49:37 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="58047A01-50D6-607E-223B-A1A29D9CFF2D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

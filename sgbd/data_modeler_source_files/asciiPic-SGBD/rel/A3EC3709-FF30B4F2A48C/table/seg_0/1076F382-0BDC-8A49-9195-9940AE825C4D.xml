@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1076F382-0BDC-8A49-9195-9940AE825C4D" name="J_REGISTER">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:53:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="JOURNALIZE_ID" id="18E5A4C3-7375-98C1-7A0D-AEE855C8EFE1">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:53:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_REGISTER_JOURNALIZE_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="03940B35-40AF-612D-B382-903EF57A0038" referredColumn="8470B97A-1A27-A108-95EA-63790C2674F3"/>
+</associations>
+</Column>
+<Column name="USER_ID" id="AC2F191A-C3BB-DCA5-66C8-6C8E1201C868">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:53:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_REGISTER_USER_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="2C1D4549-E211-3BFA-90FD-E0BD5D408537" referredColumn="5C2FB185-06A8-2E51-157E-666BC4C934FA"/>
+</associations>
+</Column>
+<Column name="IP" id="D69BD8D3-EDEC-C911-1D76-B164C05FE1C2">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:53:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_REGISTER_IP</notNullConstraintName>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="39CDAFE5-9CF8-9CC4-96DD-4F62F01B4A5E" name="J_REGISTER_PK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:53:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="18E5A4C3-7375-98C1-7A0D-AEE855C8EFE1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5432641C-838C-9738-D122-A0233BBBE827" name="J_REGISTER_USERS_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:44:41 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AC2F191A-C3BB-DCA5-66C8-6C8E1201C868"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="44E22120-ADFB-9008-A89E-CCD9ADA89549" name="J_REGISTER_JOURNALIZE_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:44:41 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="18E5A4C3-7375-98C1-7A0D-AEE855C8EFE1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,146 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A15003FB-2AFF-77B6-3C7D-32D66BC9B302" name="J_CRAWL">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:16:36 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="JOURNALIZE_ID" id="38064D0A-A106-0F8A-0231-6960F86F26C2">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:16:36 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_CRAWL_JOURNALIZE_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="F0BC2271-1A77-F3DB-43F2-4BFD286DA68A" referredColumn="8470B97A-1A27-A108-95EA-63790C2674F3"/>
+</associations>
+</Column>
+<Column name="USER_ID" id="A8CE1000-D2CB-407E-2F0F-C17E3A02C0A0">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:16:36 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_CRAWL_USER_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="C5B292C2-C861-D96F-E29F-80CF1A964934" referredColumn="5C2FB185-06A8-2E51-157E-666BC4C934FA"/>
+</associations>
+</Column>
+<Column name="JOB_ID" id="32EA276F-2C44-123F-8D52-AD0376C37C24">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:18:04 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_CRAWL_JOB_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="13BAE815-CBF2-F90B-2F07-BB48AF9F46C0" referredColumn="06E56E7E-0FBB-AEF5-B1B1-DFEC1B85D8D8"/>
+</associations>
+</Column>
+<Column name="TAG" id="E4C0858B-050A-AAE0-8F4F-5134452200AD">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:16:36 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_JOURNALIZE_CRAWL_TAG</notNullConstraintName>
+</Column>
+<Column name="POST_DATE" id="39B1E0F9-37DD-C1A1-990F-43B88558B881">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:16:36 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_JOURNALIZE_CRAWL_POST_DATE</notNullConstraintName>
+</Column>
+<Column name="WIDTH" id="3863837A-457B-32A9-365A-1041853A69AF">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:16:36 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_JOURNALIZE_CRAWL_WIDTH</notNullConstraintName>
+</Column>
+<Column name="HEIGHT" id="40931E26-5E79-E80D-1C5C-F3DCB41A7C83">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:16:36 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_JOURNALIZE_CRAWL_HEIGHT</notNullConstraintName>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6367F533-E7DB-4C2C-E464-81402FE8DA9C" name="J_CRAWL_PK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:16:36 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="38064D0A-A106-0F8A-0231-6960F86F26C2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="543AA791-6281-C8B1-FDB9-CE1E0CFAEEC1" name="J_CRAWL_JOURNALIZE_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:53:50 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="38064D0A-A106-0F8A-0231-6960F86F26C2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B8E5EB1D-91B3-4624-9282-033815F473EC" name="J_CRAWL_USERS_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:53:50 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A8CE1000-D2CB-407E-2F0F-C17E3A02C0A0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="779ED40E-3AFA-EE65-92EE-14E0FCE4018D" name="J_CRAWL_JOBS_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:53:50 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="32EA276F-2C44-123F-8D52-AD0376C37C24"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

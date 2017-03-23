@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="44079001-571B-153F-9814-353F43C3279F" name="JOURNALIZE">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:36:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="8470B97A-1A27-A108-95EA-63790C2674F3">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:36:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementGenerateAlways>true</autoIncrementGenerateAlways>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_IMAGESv1_ID</notNullConstraintName>
+</Column>
+<Column name="ACTION" id="3512FE4E-E48B-EA11-ECE0-C86FA776DCA9">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:36:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>512</dataTypeSize>
+<ownDataTypeParameters>512,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ACTION_DATE" id="F5E4CD20-F79D-9B7B-DA81-3ECB4F8C4D15">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:36:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D6AAA747-354F-8AA9-E76C-D93337473E6E" name="JOURNALIZE_PK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:36:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8470B97A-1A27-A108-95EA-63790C2674F3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

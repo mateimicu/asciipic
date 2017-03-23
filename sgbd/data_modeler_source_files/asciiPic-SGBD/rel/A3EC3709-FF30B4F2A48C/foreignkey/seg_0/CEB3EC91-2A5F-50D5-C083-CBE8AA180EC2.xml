@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CEB3EC91-2A5F-50D5-C083-CBE8AA180EC2" containerWithKeyObject="C43C642D-E69E-E971-ABF1-965E7AD48442" localFKIndex="078B8F60-D664-A019-B1B0-7BD6024A4CB8" name="J_FILTERS_JOURNALIZE_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:56:23 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<referredTableLongName>JOURNALIZE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>44079001-571B-153F-9814-353F43C3279F</referredTableID>
+<keyObject>D6AAA747-354F-8AA9-E76C-D93337473E6E</keyObject>
+<referredKeyID>D6AAA747-354F-8AA9-E76C-D93337473E6E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

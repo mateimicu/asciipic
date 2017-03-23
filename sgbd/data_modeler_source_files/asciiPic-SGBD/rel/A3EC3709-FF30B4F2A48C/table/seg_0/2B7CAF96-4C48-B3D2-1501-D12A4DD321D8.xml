@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2B7CAF96-4C48-B3D2-1501-D12A4DD321D8" name="J_LOGIN">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:45:09 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="JOURNALIZE_ID" id="A6AA275F-0760-112E-49F3-E86D734F2AEC">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:45:09 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_LOGIN_JOURNALIZE_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="D7D5EB5A-929F-50F7-13A1-E6F5F70442E9" referredColumn="8470B97A-1A27-A108-95EA-63790C2674F3"/>
+</associations>
+</Column>
+<Column name="USER_ID" id="E1750867-1610-5895-79E2-9F97008691BC">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:45:09 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_LOGIN_USER_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="BC68F87A-4030-EABD-A347-9638EEDAC9E6" referredColumn="5C2FB185-06A8-2E51-157E-666BC4C934FA"/>
+</associations>
+</Column>
+<Column name="IP" id="0ED6C6FD-74D2-A104-E06F-E54E4CD81BA1">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:45:09 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_LOGIN_IP</notNullConstraintName>
+</Column>
+<Column name="USER_AGENT" id="C63C08AD-95E6-1128-F3E4-3E36855D3F27">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:45:09 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32</dataTypeSize>
+<ownDataTypeParameters>32,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_J_LOGIN_USER_AGENT</notNullConstraintName>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5216E6B3-796D-CA6F-67FC-1ADB6EA41C02" name="J_LOGIN_PK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 14:45:09 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A6AA275F-0760-112E-49F3-E86D734F2AEC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D8435FAA-676F-3D7C-FFC1-0CD94E2F7913" name="J_LOGIN_USERS_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:47:14 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E1750867-1610-5895-79E2-9F97008691BC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="86520596-BC9A-8457-A5F2-D6728683BDE4" name="J_LOGIN_JOURNALIZE_FK">
+<createdBy>Alexandru</createdBy>
+<createdTime>2017-03-12 15:47:15 UTC</createdTime>
+<ownerDesignName>asciiPic-SGBD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A6AA275F-0760-112E-49F3-E86D734F2AEC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
