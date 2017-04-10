@@ -20,7 +20,7 @@ CREATE TABLE images (
     post_date    DATE NOT NULL,
     crawl_date   DATE NOT NULL,
     height       INTEGER NOT NULL,
-    widt         INTEGER NOT NULL,
+    width        INTEGER NOT NULL,
     is_saved     CHAR(1) NOT NULL
 );
 
