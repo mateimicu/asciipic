@@ -325,4 +325,9 @@ class Application(Group, Task):
             LOG.error("No handle was provided for the required action.")
             return
 
+        if not callable(work_function):
+            LOG.error("The handle provided for the required "
+                      "action is not callable.")
+            return
+        # pylint: disable=not-callable
         work_function()
