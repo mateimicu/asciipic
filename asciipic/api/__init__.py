@@ -7,6 +7,7 @@ import cherrypy
 from asciipic.api import base as api_base
 from asciipic.api import numeric
 from asciipic import config as asciipic_config
+from asciipic.common import util
 
 CONFIG = asciipic_config.CONFIG
 
@@ -34,5 +35,18 @@ class Root(api_base.BaseAPI):
             },
             '/': {
                 'request.dispatch': cherrypy.dispatch.MethodDispatcher()
+            },
+            '/js': {
+                'tools.staticdir.on': True,
+                'tools.staticdir.dir': util.get_resource_path("web/js")
+            },
+            '/css': {
+                'tools.staticdir.on': True,
+                'tools.staticdir.dir': util.get_resource_path("web/css")
             }
         }
+
+    def GET(self):
+        """Return the index page."""
+        with open(util.get_resource_path("web/index.html")) as tmp:
+            return tmp.read()
