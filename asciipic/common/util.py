@@ -1,5 +1,6 @@
 """A collection of utilities used across the project."""
 
+import os
 import importlib
 import prettytable
 
@@ -83,3 +84,11 @@ def get_unicode_string_type():
     except NameError:
         # PY3.x
         return str
+
+
+def get_resource_path(resource):
+    """Get resource path from asciipic resources."""
+    resource_path = os.path.join(
+        os.path.abspath(os.path.dirname(__file__)),
+        "..", resource)
+    return os.path.normpath(resource_path)
