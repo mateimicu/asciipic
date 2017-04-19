@@ -1,0 +1,5 @@
+html, body, #term-row, .container-fluid
+{
+    min-height: 100%;
+    height: 100%;
+} 
