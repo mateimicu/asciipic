@@ -16,8 +16,8 @@ for option_class in factory.get_options():
 
 _DEFAULT_CONFIG_FILES = [
     config_file for config_file in ("asciipic.conf",
-                                    "etc/asciipic/cars_scrap.conf",
-                                    "/etc/asciipic/cars_scrap.conf")
+                                    "etc/asciipic/asciipic.conf",
+                                    "/etc/asciipic/asciipic.conf")
     if os.path.isfile(config_file)
 ]
 
