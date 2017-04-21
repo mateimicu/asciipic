@@ -4,6 +4,7 @@ _OPT_PATHS = (
     'asciipic.config.default.AsciipicOptions',
     'asciipic.config.api.AsciipicAPIOptions',
     'asciipic.config.journalize.AsciipicJournalizeOptions',
+    'asciipic.config.oracle.AsciipicOracleOptions',
 )
 
 
