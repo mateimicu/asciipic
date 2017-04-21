@@ -20,3 +20,7 @@ DEFAULT_ORACLE_PORT = "1521"
 DEFAULT_ORACLE_USERNAME = "asciipic"
 DEFAULT_ORACLE_PASSWORD = "asciipic"
 DEFAULT_ORACLE_DBNAME = "xe"
+
+======
+ORACLE_DB_URL_FORMAT = ("oracle+cx_oracle://{username}:{password}"
+                        "@{host}:{port}/{dbname}")

@@ -61,3 +61,10 @@ class InvalidName(AsciipicException):
     """The name was not found in the context."""
 
     template = "%(name)s not found in the %(list_name) list."
+
+
+class TableNameAlreadyExists(AsciipicException):
+
+    """The table name already exists."""
+
+    template = "A table with  the name %(name)s already exists."
