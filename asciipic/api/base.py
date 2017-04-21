@@ -53,7 +53,7 @@ class BaseAPI(object):
         """Return the object that contains the current resource."""
         return self._parent
 
-    def GET(self):
+    def GET(self, **kwargs):
         """ArestorV1 resource representation."""
         cherrypy.response.headers['Content-Type'] = 'text/plain'
         return "\n".join([endpoint for endpoint, _ in self.resources or []])
