@@ -14,4 +14,7 @@ class TableFactory(util.BaseFactory):
     ITEMS = [
         "user",
         "jour",
+        "image",
+        "tags",
+        "association_tags",
     ]
