@@ -13,4 +13,5 @@ class TableFactory(util.BaseFactory):
 
     ITEMS = [
         "user",
+        "jour",
     ]
