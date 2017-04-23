@@ -51,6 +51,11 @@ class Root(api_base.BaseAPI):
             '/img': {
                 'tools.staticdir.on': True,
                 'tools.staticdir.dir': util.get_resource_path("web/img")
+            },
+            '/statistics.html': {
+                'tools.staticfile.on': True,
+                'tools.staticfile.filename': os.path.join(
+                    util.get_resource_path("web/"), "journalizeIndex.html")
             }
         }
 
