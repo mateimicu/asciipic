@@ -3,6 +3,7 @@
 import os
 
 import cherrypy
+from oslo_log import log as logging
 
 from asciipic.api import base as api_base
 from asciipic.api import parser
@@ -11,6 +12,7 @@ from asciipic import config as asciipic_config
 from asciipic.common import util
 
 CONFIG = asciipic_config.CONFIG
+LOG = logging.getLogger(__name__)
 
 
 class Root(api_base.BaseAPI):
@@ -45,10 +47,21 @@ class Root(api_base.BaseAPI):
             '/css': {
                 'tools.staticdir.on': True,
                 'tools.staticdir.dir': util.get_resource_path("web/css")
+            },
+            '/img': {
+                'tools.staticdir.on': True,
+                'tools.staticdir.dir': util.get_resource_path("web/img")
             }
         }
 
     def GET(self):
         """Return the index page."""
         with open(util.get_resource_path("web/index.html")) as tmp:
-            return tmp.read()
+            data = tmp.read()
+            try:
+                data = data.format(journalize_host=CONFIG.journalize.journalize_host)
+            except KeyError:
+                LOG.warn("Cound not add the journalize_host.")
+
+            return data
+
