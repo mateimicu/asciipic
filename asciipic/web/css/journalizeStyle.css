@@ -1,0 +1,78 @@
+.container{
+    min-height: 600px;
+    padding-top: 30px;
+}
+#statisticResults{
+    min-height: 300px;
+    min-height: 450px;
+    width: 55%;
+    background: red;
+    display: inline-block;
+}
+#inputs{
+    width: 40%;
+    display: block;
+    float: left;
+}
+#typeOfTimeInput{
+    margin-top: 8px; 
+    display: none;
+}
+#loginWithSmthInput{
+    margin-top: 18px; 
+    display: none;
+}
+#ipInput{
+    margin-top: 8px; 
+    display: none;
+}
+#userAgentInput{
+    margin-top: 8px;
+    display: none;
+}
+#filtersTypeInput{
+    margin-top: 18px;
+    display: none;
+}
+#causesInput{
+    margin-top: 18px;
+    display: none;
+}
+#tagInput{
+    margin-top: 8px; 
+    display: none;
+}
+#postDateInput{
+    margin-top: 8px; 
+    display: none;
+}
+#pictureSizeInput{
+    margin-top: 8px; 
+    display: none;
+}
+#timeInput{
+    margin-top: 8px; 
+    display: none;
+}
+#goButton{
+    margin-top: 10px;
+}
+form {
+    line-height: 1.9;
+}
+input {
+    width: 100px;
+}
+@media screen and (max-width:500px) and (min-width:50px) {
+    #statisticResults {
+        min-height: 300px;
+        width: 80%;
+        margin-top: 20px;
+        background: green;
+        display:inline-block;
+    }
+    #inputs{
+        width: 40%;
+        display: block;
+    }
+}
