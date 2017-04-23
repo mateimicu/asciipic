@@ -1,8 +1,8 @@
 """API  endpoint for the AsciiPic API."""
-import cherrypy
 
 from asciipic.api import base as base_api
 from asciipic.api.api_endpoint import version
+
 
 class APIEndpoint(base_api.BaseAPI):
 

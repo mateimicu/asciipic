@@ -54,14 +54,14 @@ class Root(api_base.BaseAPI):
             }
         }
 
-    def GET(self):
+    def GET(self, **_):
         """Return the index page."""
         with open(util.get_resource_path("web/index.html")) as tmp:
             data = tmp.read()
             try:
-                data = data.format(journalize_host=CONFIG.journalize.journalize_host)
+                data = data.format(
+                    journalize_host=CONFIG.journalize.journalize_host)
             except KeyError:
                 LOG.warn("Cound not add the journalize_host.")
 
             return data
-
