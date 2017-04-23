@@ -3,6 +3,7 @@ import cherrypy
 
 from asciipic.api import base as base_api
 
+
 class ParserEndpoint(base_api.Resource):
 
     """This API will parse the CLI command and return a list with endpoints"""
@@ -10,8 +11,9 @@ class ParserEndpoint(base_api.Resource):
     # Whether this application should be available for clients
     exposed = True
 
+    # pylint: disable=no-self-use
     @cherrypy.tools.json_out()
-    def GET(self, command=""):
+    def GET(self, **kwargs):
         """Parse the command and return a JSON.
 
         The format will be :
@@ -23,7 +25,7 @@ class ParserEndpoint(base_api.Resource):
                         "method: "POST"
                         "data": { .. }
                     },
-                    
+
                     {
                         "type": "pipe"
                         "endpoint": "..",
@@ -54,6 +56,7 @@ class ParserEndpoint(base_api.Resource):
             }
         """
         # Return some mock data for now
+        command = kwargs.pop("command", "")
         return {
             "cmd": command,
             "actions": [
@@ -66,4 +69,3 @@ class ParserEndpoint(base_api.Resource):
             ]
 
         }
-
