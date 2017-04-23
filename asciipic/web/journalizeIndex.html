@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> AsciiPic Jouralize</title>
+    <script type="text/javascript" src="js/interactWithUser.js"></script> 
+    <script type="text/javascript" src="js/prepareJsonForServer.js"></script> 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/journalizeStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class = "container">
+        <div id = "inputs">
+          <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">How to use it!</button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Rules!</h4>
+                </div>
+                <div class="modal-body">
+                    <p>A lot of rules!</p>
+                    <p>A lot of rules!</p>
+                    <p>A lot of rules!</p>
+                    <p>A lot of rules!</p>
+                    <p>A lot of rules!</p>
+                    <p>A lot of rules!</p>
+                    <p>A lot of rules!</p>
+                    <p>A lot of rules!</p>
+                    <p>A lot of rules!</p>
+                    <p>A lot of rules!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <!--main input-->
+            <div>
+                <br><br>
+                Main command:<br>
+                <select class ="btn btn-info" onclick = "mainMenu();" id = "mainCommandInput">
+                  <option value="LOGIN" >LOGIN</option>
+                  <option value="LOGOUT">LOGOUT</option>
+                  <option value="REGISTER">REGISTER</option>
+                  <option value="SEARCH">SEARCH</option>
+                  <option value="CRAWL">CRAWL</option>
+                  <option value="FILTERS">FILTERS</option>
+                </select>
+            </div>
+
+            <div >
+                <!-- IP or without IP -->
+                <select class ="btn btn-info" onclick = "loginWith();" id = "loginWithSmthInput"> 
+                    <option value = "" selected disabled>Login with:</option> 
+                    <option value="NONE">none</option>
+                    <option value="IP">with IP</option>
+                </select> 
+            </div>
+        
+            <div id = "ipInput">
+                <!--IP input -->
+                <br>
+                IP: <input type="text" id="ip" >
+            </div>
+
+            <div id = "tagInput">
+                <!--tag -->
+                <br>
+                TAG: <input type="text" id="tag">
+            </div>
+
+            <div id = "postDateInput">
+                <!--postDate -->
+                <br><br>
+                POST_DATE: <input type="text" id="postDate">
+            </div>
+
+            <div id = "pictureSizeInput">
+                <!--size -->
+                <br><br>
+                SIZE: <input type="text" id="pictureSizeHeight">X<input type="text" id="pictureSizeWidth">
+            </div>
+
+            <div>
+                <!-- user-agent-ul -->
+                <select class ="btn btn-info" id = "userAgentInput"> 
+                    <option value = "" selected disabled>User agent:</option> 
+                    <option value="NONE">None</option>
+                    <option value="FIREFOX">Firefox</option>
+                    <option value="CHROME">Chrome</option>
+                    <option value="OPERA">Opera</option>
+                    <option value="INTERNET_EXPLORER">InternetExplorer</option>
+                    <option value="SAFARI">Safari</option>
+                </select> 
+            </div>
+
+            <div >
+                <!-- Type of filters-->
+                <select class ="btn btn-info" id = "filtersTypeInput"> 
+                    <option value = "" selected disabled>Filter type:</option> 
+                    <option value="NONE">NONE</option>
+                    <option value="type2">Type 2</option>
+                    <option value="type3">Type 3</option>
+                    <option value="type4">Type 4</option>
+                    <option value="type5">etc</option>
+                </select> 
+            </div>
+
+            <div >
+                <!-- causes logout -->
+                <select class ="btn btn-info" id = "causesInput">
+                    <option value = "" selected disabled>Logout cause:</option> 
+                    <option value="NATURAL">Natural</option>
+                    <option value="ARTIFICIAL">Artificial</option>
+                    <option value="NATURAL_AND_ARTIFICIAL">Natural and Artificial</option>
+                </select> 
+            </div>
+
+            <div id = "timeInput">
+                <!-- Data--> 
+                <br>
+                In the last: <input type="text" id="time">
+            </div>
+         
+            <div >
+                <select class ="btn btn-info" id = "typeOfTimeInput">
+                    <option value = "" selected disabled >Type of time:</option> 
+                    <option value="DAYS">days</option>
+                    <option value="MONTHS">months</option>
+                    <option value="YEARS">years</option>
+                    <option value="FROM_THE_BEGINING">from the begining</option>
+            </select> 
+            </div>
+
+            <div>
+              <button class = "btn btn-danger" id = "goButton" onclick = "sendInformations();">GO!</button>
+            </div>
+
+        </div><!-- /inputs -->
+
+        <div id = "statisticResults" >
+        </div>
+    </div>
+</body>
+</html>
