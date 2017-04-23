@@ -15,7 +15,7 @@ class AsciipicJournalizeOptions(conf_base.Options):
         self._options = [
             cfg.StrOpt(
                 "journalize_host",
-                default="https://journalize.asciipic.xyz/",
+                default="/statistics.html",
                 help="The IP address or the host name of the server "
                      "of journalize service."),
         ]
