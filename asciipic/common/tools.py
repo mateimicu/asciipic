@@ -1,10 +1,28 @@
 """Tools used across the project."""
 import hashlib
-import os
+import random
+import time
+import string
+
+
+from oslo_log import log as logging
 
 import redis
 
 from asciipic.common import constant
+from asciipic.common import exception
+from asciipic import config as asciipic_config
+
+
+CONFIG = asciipic_config.CONFIG
+LOG = logging.getLogger(__name__)
+
+CHARS = string.ascii_uppercase + string.digits
+
+
+def get_salt(length):
+    """Get a cryptographically secure salt."""
+    return ''.join(random.SystemRandom().choice(CHARS) for _ in range(length))
 
 
 def hash_password(password):
@@ -13,7 +31,7 @@ def hash_password(password):
     :param password: The password you want to hash
     :return: (hash, salt)
     """
-    salt = os.urandom(8)
+    salt = get_salt(constant.SALT_LEN)
     password_template = constant.PASSWORD_HASH_TEMPLATE.format(
         alg=constant.HASHING_ALG,
         password=password,
@@ -37,8 +55,7 @@ def check_password(raw_password, enc_password, salt):
         salt=salt)
     hashed_password = hashlib.sha256(password_template).hexdigest()
     return enc_password == hashed_password
-<<<<<<< HEAD
-=======
+
 
 def generate_token(userid):
     """Generate a random token for the user_id"""
@@ -87,7 +104,7 @@ class RedisConnection(object):
             except redis.ConnectionError as exc:
                 LOG.error("Failed to connect to Redis Server: %s", exc)
         else:
-            raise exception.ArestorException(
+            raise exception.AsciipicException(
                 "Failed to connect to Redis Server.")
 
         return True

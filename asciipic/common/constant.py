@@ -31,3 +31,15 @@ ACTION_TYPES = [
 
 PASSWORD_HASH_TEMPLATE = "{alg}${password}${salt}"
 HASHING_ALG = "sha256"
+SALT_LEN = 8
+
+TOKEN_HASHING_TEMPLATE = "{userid}${time}${salt}"
+TOKEN_FORMAT = "TOKEN_{token}"
+ID_FORMAT = "ID_{userid}"
+
+USER_ID = "U_id"
+USER_USERNAME = "U_username"
+
+# NOTE(mmicu): astea ar putea fi si config options
+TTL_TOKEN_MINUTES = 30
+TTL_ID_OFFSET_SECONDS = 10
