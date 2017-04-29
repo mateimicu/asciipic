@@ -68,3 +68,20 @@ class TableNameAlreadyExists(AsciipicException):
     """The table name already exists."""
 
     template = "A table with  the name %(name)s already exists."
+
+
+class ItemNotFound(AsciipicException):
+
+    """The item was not found."""
+    template = "The item with this id : %(id)s was not found."
+
+
+class TooManyItems(AsciipicException):
+
+    """Too many items returned."""
+    template = "Expetect %(expected)s items but found %(found)s."
+
+class QueryError(AsciipicException):
+
+    """Somethign went wrong."""
+    template = "Error while interacting with DB : %(msg)s"
