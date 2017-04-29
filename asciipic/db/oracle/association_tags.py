@@ -17,8 +17,8 @@ class AssociationTags(base.META_BASE):
     tag_id = sqlalchemy.Column(sqlalchemy.Integer,
                                sqlalchemy.ForeignKey('images.id'),
                                primary_key=True)
-    image = orm.relationship("Image", back_populates="images")
-    tag = orm.relationship("Tag", back_populates="tags")
+    image = orm.relationship("Image")
+    tag = orm.relationship("Tag")
 
     def __repr__(self):
         """Return the representation-ish for this image."""

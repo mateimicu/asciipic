@@ -19,8 +19,8 @@ class Image(base.META_BASE):
     height = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
     width = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
     is_saved = sqlalchemy.Column(sqlalchemy.Boolean, default=False)
-    tags = orm.relationship("AssociationTags", back_populates="tags")
-
+    # tags = orm.relationship("AssociationTags", back_populates="tag")
+    tags = orm.relationship("AssociationTags")
     def __repr__(self):
         """Return the representation-ish for this image."""
         repr_str = ("<Image(id='{}', url='{}', post_date='{}', "
