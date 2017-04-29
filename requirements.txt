@@ -4,3 +4,7 @@ cherrypy
 oslo.log
 oslo.config
 prettytable
+cx_Oracle==5.2
+SQLAlchemy==0.9.1
+SQLAlchemy-Utils==0.32.14
+
