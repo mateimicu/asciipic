@@ -28,3 +28,6 @@ ACTION_TYPES = [
     ('login', 'login'),
     ('logout', 'logout'),
 ]
+
+PASSWORD_HASH_TEMPLATE = "{alg}${password}${salt}"
+HASHING_ALG = "sha256"
