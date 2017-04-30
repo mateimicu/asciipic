@@ -9,4 +9,4 @@ env:
  - TOX_ENV=pylint
  - TOX_ENV=pep8
 install: pip install tox
-script: echo "Pass"
+script: tox
