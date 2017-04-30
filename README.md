@@ -1,9 +1,9 @@
 Titlu: AsciiPic
 ==============
-Website: https://asciipic.herokuapp.com/
 
-Descriere:
----------
+
+###Descriere:
+
 
 Inspirat din CoLiW. 
 In mod normal, accesul la Web se realizeaza pe baza unui browser. 
@@ -28,21 +28,18 @@ Astfel putem interoga statusul job-ului sau la finalul lui putem opta pentru pri
 
 Am estimat proiectul ca fiind unul de tip S care ar avea nevoie de 4 persoane pentru o implementare optima in timpul acordat.
 
-Generarea fisierului de configurare
------------------------------------
-```bash
+---
 
-# genetare a config file
-~ asciipic/ $ oslo-config-generator --config-file etc/asciipic/asciipic-config-generator.conf
-~ asciipic/ $ sudo mkdir /etc/asciipic/
+Website: https://asciipic.xyz/
+Din pacate CD nu mai este activ deoarece oracle nu pote fi instalat cu buildback-urile de la Heroku. Desi am incercat
+sa creez custom buildback Heroku nu te lasa sa descarci jumate de internet doar pentru un amarat de oracle client
+(`cx_Oracle==5.2` necesita client-ul nativ de oracle care nu poate fi instalat usor ). Clientul `6.0b1` este mult mai usor 
+de instalat dar  din pacate nu este suportat de `SqlAlchemy`.
 
-# copy the config file in /etc/asciipic
-~ asciipic/ $ sudo cp etc/asciipic/asciipic.conf.sample /etc/asciipic/asciipic.conf
-```
 
 Quick start
 -----------
-Este ingicata generarea unui fisier de configurare prima data.
+Este indicata generarea unui fisier de configurare prima data.
 
 ```bash
 # install deps
@@ -67,6 +64,51 @@ Este ingicata generarea unui fisier de configurare prima data.
 ~ asciipic/ $ pip install ../asciipic
 # Or 
 ~ asciipic/ $ python setup.py install
+```
+
+Generarea fisierului de configurare
+-----------------------------------
+Pentru a genera fisierul de configurare trebuie sa avem proiectul deja instalat.
+```bash
+
+# genetare a config file
+~ asciipic/ $ oslo-config-generator --config-file etc/asciipic/asciipic-config-generator.conf
+~ asciipic/ $ sudo mkdir /etc/asciipic/
+
+# copy the config file in /etc/asciipic
+~ asciipic/ $ sudo cp etc/asciipic/asciipic.conf.sample /etc/asciipic/asciipic.conf
+```
+
+
+Requirements
+-----------
+Proiectul are cateva dependite mai speciale:
+####OracleDB
+Foloseste ca DB oracle si trebuie sa specificam informatiile de acces catre aceasta baza de date
+in fisierul `/etc/asciipic/asciipic.conf`.
+Exemplu :
+```
+[oracle]
+host = x.x.x.x
+port = 8080
+username = ASCIIPIC
+password = ASCIIPIC
+```
+Pentru a instala oracle puteti urmari acest [tutorial](http://www.oracle.com/webfolder/technetwork/tutorials/obe/db/11g/r1/prod/install/dbinst/dbinst.htm) dar din experienta procesul nu este prea usor.
+O varianta mai usoara este sa folosim docker-engine pentru a porni un container cu oracle deja instalat.
+#####OracleDB in docker container 
+Pentru a instala docker puteti urmari [documentatia oficiala](https://docs.docker.com/engine/installation/).
+Dupa ce aveti docker instalat puteti porni containerul ( creat special pentru aceasta aplicatie ) cu urmatoare comanda:
+` docker run --name oracle-asciipic -d -p 8081:1521 matei10/asciipic_db:latest`
+
+####Redis
+Folosit pentru short-term storage si channels ( messaging queue ). 
+La fel ca in cazul bazei de date trebuie sa specificam datele de acces in fisierul `/etc/asciipic/asciipic.conf`:
+```
+[redis]
+host = 127.0.0.1
+port = 6379
+database = 0
 ```
 
 Test the project
