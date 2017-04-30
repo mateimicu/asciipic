@@ -5,6 +5,7 @@ _OPT_PATHS = (
     'asciipic.config.api.AsciipicAPIOptions',
     'asciipic.config.journalize.AsciipicJournalizeOptions',
     'asciipic.config.oracle.AsciipicOracleOptions',
+    'asciipic.config.redis.RedisOptions',
 )
 
 
