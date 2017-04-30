@@ -3,6 +3,7 @@ import sqlalchemy
 
 from asciipic.db.oracle import base
 
+
 class User(base.META_BASE):
     """User Map for the Users table."""
     __tablename__ = 'users'
