@@ -68,3 +68,39 @@ class TableNameAlreadyExists(AsciipicException):
     """The table name already exists."""
 
     template = "A table with  the name %(name)s already exists."
+
+
+class ItemNotFound(AsciipicException):
+
+    """The item was not found."""
+
+    template = "The item with this id : %(id)s was not found."
+
+
+class TooManyItems(AsciipicException):
+
+    """Too many items returned."""
+
+    template = "Expetect %(expected)s items but found %(found)s."
+
+
+class QueryError(AsciipicException):
+
+    """Somethign went wrong when executing the query."""
+
+    template = "Error while interacting with DB : %(msg)s"
+
+
+class InvalidCredentials(AsciipicException):
+
+    """The credentials are invalid."""
+
+    template = "Credentials provider for user %(username)s are invalid."
+
+
+class UnableToGenerateToken(AsciipicException):
+
+    """Something went wrong when generating the token."""
+
+    template = ("Something went wrong when generating the token "
+                "for user : %(username)s")

@@ -2,6 +2,7 @@
 
 from asciipic.api import base as base_api
 from asciipic.api.api_endpoint import version
+from asciipic.api.api_endpoint import user
 
 
 class APIEndpoint(base_api.BaseAPI):
@@ -12,6 +13,7 @@ class APIEndpoint(base_api.BaseAPI):
     # current metadata service
     resources = [
         ("version", version.Version),
+        ("user", user.UserEndpoint)
     ]
 
     # Whether this application should be available for clients

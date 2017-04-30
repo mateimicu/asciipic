@@ -13,7 +13,9 @@ class Tag(base.META_BASE):
                            primary_key=True, autoincrement=True)
     name = sqlalchemy.Column(sqlalchemy.String(length=60,
                                                convert_unicode=True))
-    images = orm.relationship("AssociationTags", back_populates="images")
+
+    # images = orm.relationship("AssociationTags", back_populates="image")
+    images = orm.relationship("AssociationTags")
 
     def __repr__(self):
         """Return the representation-ish for this image."""
