@@ -64,6 +64,12 @@ Este indicata generarea unui fisier de configurare prima data.
 ~ asciipic/ $ pip install ../asciipic
 # Or 
 ~ asciipic/ $ python setup.py install
+
+# install oracle client
+# Se poate sa aveti nevoie de niste binare de la oracle :'(
+# dar daca aveti oracle-db instalat pe masina ar trebui sa fie deja instalate
+~ asciipic/ $ pip install -r oracle-requirements.txt
+
 ```
 
 Generarea fisierului de configurare
