@@ -149,3 +149,25 @@ class Users(object):
         except exception.QueryError as ex:
             LOG.error("DB query for %s and got : %s", username, ex)
             raise exception.UnableToGenerateToken(username=username)
+
+
+    @classmethod
+    def check_token(cls, token):
+        """Check the token, if it's valid return the USER.
+
+        :param token: The user token
+        """
+        session = ORACLE_DB.session
+        redis_con = tools.RedisConnection()
+
+        userid = redis_con.get(token)
+        if not userid:
+            # The token expired
+            return userid
+        try:
+            user = session.query(USER).filter(USER.id.like(userid)).first()
+            return user
+        except exception.QueryError as ex:
+            LOG.error("DB query for id: %s with token and got : %s",
+                      userid, token, ex)
+            raise exception.QueryError(msg=ex)
