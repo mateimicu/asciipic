@@ -2,17 +2,11 @@
 
 import os
 import importlib
-import functools
-import json
 import prettytable
 
-import cherrypy
 from oslo_log import log as logging
 
 from asciipic.common import exception
-from asciipic.db.managers import user
-
-USERS = user.Users
 LOG = logging.getLogger(__name__)
 
 
@@ -101,46 +95,3 @@ def get_resource_path(resource):
         os.path.abspath(os.path.dirname(__file__)),
         "..", resource)
     return os.path.normpath(resource_path)
-
-
-def check_credentials(method):
-    """Check the users credentials."""
-
-    @functools.wraps(method)
-    def wraper(*args, **kwargs):
-        response = {
-            "meta": {
-                "status": True,
-                "verbose": "Ok"
-            },
-            "content": None
-        }
-        request = cherrypy.serving.request
-        token = request.headers.get("Authorization", None)
-        if not token:
-            response["meta"]["status"] = False
-            response["meta"]["verbose"] = "Authorization required."
-            cherrypy.response.status = 401
-            cherrypy.response.headers['Content-Type'] = 'application/json'
-            return json.dumps(response)
-
-        user_obj = None
-        try:
-            user_obj = USERS.check_token(token)
-        except exception.QueryError as ex:
-            LOG.info("Unable to fetch the user from database for token %s,"
-                     " error message: %s", token, ex)
-        if not user_obj:
-            response["meta"]["status"] = False
-            response["meta"]["verbose"] = "Expired or Invalid token."
-            cherrypy.response.status = 401
-            cherrypy.response.headers['Content-Type'] = 'application/json'
-            return json.dumps(response)
-
-        # Set the User object as a header
-        # NOTE(mmicu): find a better way to pass this paramether, maybe
-        # a session or somethign like that
-        cherrypy.response.headers['USER'] = user_obj
-        return method(*args, **kwargs)
-
-    return wraper
