@@ -1,11 +1,14 @@
 """This module contains the entry point for the command line application."""
-
 import argparse
 import sys
 
+from oslo_log import log as logging
 
+from asciipic.common import log
 from asciipic.cli import base as cli_base
 from asciipic.cli import commands as cli_commands
+
+LOG = logging.getLogger(__name__)
 
 
 class AsciipicCli(cli_base.Application):
@@ -31,6 +34,7 @@ class AsciipicCli(cli_base.Application):
 
 def main():
     """The Cars Scrap command line application."""
+    log.prepare_log_module()
     asciipic = AsciipicCli(sys.argv[1:])
     asciipic.run()
     return asciipic.result
