@@ -1,112 +1,128 @@
-function sendInformations(){
-    //for json
-    var mainCommandInput;
-    var ipInput = "";
-    var tagInput = "";
-    var postDateInput = "";
-    var pictureSizeHeightInput = "";
-    var pictureSizeWidthInput = "";
-    var userAgentInput = "";
-    var filtersTypeInput = "";
-    var causesInput = "";
-    var timeInput = "";
-    var typeOfTimeInput = "";
-
-    mainCommandInput = (document.getElementById("mainCommandInput").getElementsByTagName("option")[document.getElementById("mainCommandInput").selectedIndex].value);
-
-    switch(mainCommandInput){
-        case "LOGIN":
-            loginWithSmthInput = (document.getElementById("loginWithSmthInput").getElementsByTagName("option")[document.getElementById("loginWithSmthInput").selectedIndex].value);
-            if(loginWithSmthInput == "NONE"){
-                ipInput = "";
-            }
-            else{
-                ipInput =  document.getElementById("ip").value;
-            }
-            userAgentInput = (document.getElementById("userAgentInput").getElementsByTagName("option")[document.getElementById("userAgentInput").selectedIndex].value);
-            if(userAgentInput == "NONE"){
-                userAgentInput = "";
-            }   
-            break;
-        case "LOGOUT":
-            document.getElementById('statisticResults').innerHTML = "logout";
-            causesInput = (document.getElementById("causesInput").getElementsByTagName("option")[document.getElementById("causesInput").selectedIndex].value);
-            if(causesInput == "NATURAL_AND_ARTIFICIAL"){
-                causesInput = "";
-            }
-            break;
-        case "REGISTER":
-            loginWithSmthInput = (document.getElementById("loginWithSmthInput").getElementsByTagName("option")[document.getElementById("loginWithSmthInput").selectedIndex].value);
-            if(loginWithSmthInput == "NONE"){
-                ipInput = "";
-            }
-            else{
-                ipInput =  document.getElementById("ip").value;
-            }
-            break;
-        case "SEARCH":
-            tagInput = document.getElementById("tag").value;
-            postDateInput = document.getElementById("postDate").value;
-            pictureSizeHeightInput = document.getElementById("pictureSizeHeight").value;
-            pictureSizeWidthInput = document.getElementById("pictureSizeWidth").value;
-            break;
-        case "CRAWL":
-            tagInput = document.getElementById("tag").value;
-            postDateInput = document.getElementById("postDate").value;
-            pictureSizeHeightInput = document.getElementById("pictureSizeHeight").value;
-            pictureSizeWidthInput = document.getElementById("pictureSizeWidth").value;
-            break;
-        case "FILTERS":
-            filtersTypeInput = (document.getElementById("filtersTypeInput").getElementsByTagName("option")[document.getElementById("filtersTypeInput").selectedIndex].value);
-            if(filtersTypeInput == "NONE"){
-                filtersTypeInput = "";
-            }
-            break;
-        default: 
-            document.getElementById('statisticResults').innerHTML = "Something is wrong! Try again!";
-            break;
-    }
-
-    typeOfTimeInput = (document.getElementById("typeOfTimeInput").getElementsByTagName("option")[document.getElementById("typeOfTimeInput").selectedIndex].value);
-
-    if(typeOfTimeInput == "FROM_THE_BEGINING"){
+$(function() {
+    $("#goButton").click(function(e){
+        //for json
+        ipInput = "";
+        tagInput = "";
+        postDateInput = "";
+        pictureSizeHeightInput = "";
+        pictureSizeWidthInput = "";
+        userAgentInput = "";
+        filtersTypeInput = "";
+        causesInput = "";
         timeInput = "";
-    }
-    else{
-        timeInput = document.getElementById("time").value;
-    }
+        typeOfTimeInput = "";
 
-    var informationsJSON = {
-                mainCommand: mainCommandInput,
-                ip: ipInput,
-                tag: tagInput,
-                postDate: postDateInput,
-                pictureSizeHeight: pictureSizeHeightInput,
-                pictureSizeWidth: pictureSizeWidthInput,
-                userAgent: userAgentInput,
-                filtersType: filtersTypeInput,
-                causes: causesInput,
-                time:timeInput,
-                typeOfTime: typeOfTimeInput
-            };
-    //verif
-    document.getElementById('statisticResults').innerHTML = informationsJSON['mainCommand'] 
-                                                            + "<br>" + informationsJSON['ip'] 
-                                                            + "<br>" + informationsJSON['tag'] 
-                                                            + "<br>" + informationsJSON['postDate'] 
-                                                            + "<br>" + informationsJSON['pictureSizeHeight'] 
-                                                            + "<br>" + informationsJSON['pictureSizeWidth'] 
-                                                            + "<br>" + informationsJSON['userAgent']
-                                                            + "<br>" + informationsJSON['filtersType']
-                                                            + "<br>" + informationsJSON['causes']
-                                                            + "<br>" + informationsJSON['time']
-                                                            + "<br>" + informationsJSON['typeOfTime'];
+        mainCommandInput =$('#mainCommandInput option:selected').val();
 
-    /* NOTE(AlexandraFolvaiter): fix it!*/
-    // var xhr = new XMLHttpRequest();
-    // xhr.open("POST","http://localhost:8084/v1/students");
-    // xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    // var j = informationsJSON;
-    // xhr.send(JSON.stringify(j));
-}
+        switch(mainCommandInput){
+            case "LOGIN":
+                loginWithSmthInput = $('#loginWithSmthInput option:selected').val();
+                if(loginWithSmthInput == "NONE"){
+                    ipInput = "";
+                }
+                else{
+                    ipInput =  $('#ip').val();
+                }
+                userAgentInput = $('#userAgentInput option:selected').val();
+                if(userAgentInput == "NONE"){
+                    userAgentInput = "";
+                }   
+                break;
+            case "LOGOUT":
+                causesInput = $('#causesInput option:selected').val();
+                if(causesInput == "NATURAL_AND_ARTIFICIAL"){
+                    causesInput = "";
+                }
+                break;
+            case "REGISTER":
+                loginWithSmthInput = $('#loginWithSmthInput option:selected').val();
+                if(loginWithSmthInput == "NONE"){
+                    ipInput = "";
+                }
+                else{
+                    ipInput =  $('#ip').val();
+                }
+                break;
+            case "SEARCH":
+                tagInput = $('#tag').val();
+                postDateInput = $('#postDate').val();
+                pictureSizeHeightInput = $('#pictureSizeHeight').val();
+                pictureSizeWidthInput = $('#pictureSizeWidth').val();
+                break;
+            case "CRAWL":
+                tagInput = $('#tag').val();
+                postDateInput = $('#postDate').val();
+                pictureSizeHeightInput = $('#pictureSizeHeight').val();
+                pictureSizeWidthInput = $('#pictureSizeWidth').val();
+                break;
+            case "FILTERS":
+                filtersTypeInput = $('#filtersTypeInput option:selected').val();
+                if(filtersTypeInput == "NONE"){
+                    filtersTypeInput = "";
+                }
+                break;
+            default: 
+                $('#statisticResults').text("Something is wrong!");
+                break;
+        }
 
+        typeOfTimeInput = $('#typeOfTimeInput option:selected').val();
+
+        if(typeOfTimeInput == "FROM_THE_BEGINING"){
+            timeInput = "";
+            typeOfTimeInput = "";
+        }
+        else{
+            timeInput = $('#time').val();
+        }
+
+        informationsJSON = {
+                    mainCommand: mainCommandInput,
+                    ip: ipInput,
+                    tag: tagInput,
+                    postDate: postDateInput,
+                    pictureSizeHeight: pictureSizeHeightInput,
+                    pictureSizeWidth: pictureSizeWidthInput,
+                    userAgent: userAgentInput,
+                    filtersType: filtersTypeInput,
+                    causes: causesInput,
+                    time:timeInput,
+                    typeOfTime: typeOfTimeInput
+                };
+
+        textDeAfisat = informationsJSON['mainCommand'] 
+                        + "<br>" + informationsJSON['ip'] 
+                        + "<br>" + informationsJSON['tag'] 
+                        + "<br>" + informationsJSON['postDate'] 
+                        + "<br>" + informationsJSON['pictureSizeHeight'] 
+                        + "<br>" + informationsJSON['pictureSizeWidth'] 
+                        + "<br>" + informationsJSON['userAgent']
+                        + "<br>" + informationsJSON['filtersType']
+                        + "<br>" + informationsJSON['causes']
+                        + "<br>" + informationsJSON['time']
+                        + "<br>" + informationsJSON['typeOfTime'];
+        $('#statisticResults').html(textDeAfisat);
+
+        /* NOTE(AlexandraFolvaiter): fix it!*/
+        //send request to server
+         e.preventDefault();
+        $.ajax({
+        url: "http://localhost:8084/v1/statistic",
+        headers: {
+            "content-type": "application/json"
+          },
+        type: "POST",
+        data: informationsJSON,
+        dataType: "json",
+        "processData": false,
+        success: function(response) {
+          alert(response);
+        },
+        error: function(response) {
+          console.log(response);
+        }
+      });
+
+    });
+
+});
