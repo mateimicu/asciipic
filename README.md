@@ -1,8 +1,8 @@
 Titlu: AsciiPic
 ==============
+[![Requirements Status](https://requires.io/github/micumatei/ascipic/requirements.svg?branch=master)](https://requires.io/github/micumatei/ascipic/requirements/?branch=master)
 
-
-###Descriere:
+### Descriere:
 
 
 Inspirat din CoLiW. 
