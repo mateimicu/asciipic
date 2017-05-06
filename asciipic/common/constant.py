@@ -43,3 +43,9 @@ USER_USERNAME = "U_username"
 # NOTE(mmicu): astea ar putea fi si config options
 TTL_TOKEN_MINUTES = 30
 TTL_ID_OFFSET_SECONDS = 10
+
+# NOTE(mmicu): astea ar putea fi si config options
+RETRY_COUNT = 20
+RETRY_DELAY = 5
+
+LOG_DOMAIN = "asciipic"

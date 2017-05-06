@@ -6,6 +6,7 @@ from oslo_log import log as logging
 
 from asciipic import config as asciipic_config
 from asciipic.common import constant
+from asciipic.common import tools
 from asciipic.common import exception
 
 CONFIG = asciipic_config.CONFIG
@@ -46,6 +47,7 @@ class OracleDBManager(object):
     def conn(self):
         return self._engine.connect()
 
+    @tools.retry(exceptions=sqlalchemy.exc.DatabaseError)
     def create_all(self, base):
         """Create all """
         if self._base != base:

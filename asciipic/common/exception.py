@@ -104,3 +104,11 @@ class UnableToGenerateToken(AsciipicException):
 
     template = ("Something went wrong when generating the token "
                 "for user : %(username)s")
+
+
+class FailedTooManyTimes(AsciipicException):
+
+    """The operations failed too many times."""
+
+    template = ("Method %(method) from module %(module)s failed"
+                " too many times.")

@@ -1,15 +1,18 @@
 """Users DB manager for AsciiPic."""
 import datetime
+import json
+import functools
 
+import cherrypy
 import sqlalchemy
 from oslo_log import log as logging
 
-from asciipic.db import oracle
+from asciipic.db.oracle import init as oracle_init
 from asciipic.common import constant
 from asciipic.common import exception
 from asciipic.common import tools
 
-ORACLE_DB = oracle.ORACLE_DB
+ORACLE_DB = oracle_init.ORACLE_DB
 LOG = logging.getLogger(__name__)
 # NOTE(mmicu): Pylint nu poate vedea membri
 # setati dinamic
@@ -149,3 +152,71 @@ class Users(object):
         except exception.QueryError as ex:
             LOG.error("DB query for %s and got : %s", username, ex)
             raise exception.UnableToGenerateToken(username=username)
+
+    @classmethod
+    def check_token(cls, token):
+        """Check the token, if it's valid return the USER.
+
+        :param token: The user token
+        """
+        session = ORACLE_DB.session
+        redis_con = tools.RedisConnection()
+        token_format = constant.TOKEN_FORMAT.format(token=token)
+        userid = redis_con.rcon.get(token_format)
+        if not userid:
+            LOG.info("For token <%s> we did not found a user id", token_format)
+            # The token expired
+            return userid
+        try:
+            user = session.query(USER).filter(USER.id.like(userid)).first()
+            LOG.info("For token <%s> we found user %s", token_format, user)
+            return user
+        except exception.QueryError as ex:
+            LOG.error("DB query for id: %s with token and got : %s",
+                      userid, token, ex)
+            raise exception.QueryError(msg=ex)
+
+
+# NOTE(mmicu): this can be a static method also
+def check_credentials(method):
+    """Check the users credentials."""
+
+    @functools.wraps(method)
+    def wraper(*args, **kwargs):
+        response = {
+            "meta": {
+                "status": True,
+                "verbose": "Ok"
+            },
+            "content": None
+        }
+        request = cherrypy.serving.request
+        token = request.headers.get("Authorization", None)
+        if not token:
+            response["meta"]["status"] = False
+            response["meta"]["verbose"] = "Authorization required."
+            cherrypy.response.status = 401
+            cherrypy.response.headers['Content-Type'] = 'application/json'
+            return json.dumps(response)
+
+        user_obj = None
+        try:
+            user_obj = Users.check_token(token)
+        except exception.QueryError as ex:
+            LOG.info("Unable to fetch the user from database for token %s,"
+                     " error message: %s", token, ex)
+        if not user_obj:
+            LOG.info("No user was found !")
+            response["meta"]["status"] = False
+            response["meta"]["verbose"] = "Expired or Invalid token."
+            cherrypy.response.status = 401
+            cherrypy.response.headers['Content-Type'] = 'application/json'
+            return json.dumps(response)
+
+        # Set the User object as a header
+        # NOTE(mmicu): find a better way to pass this paramether, maybe
+        # a session or somethign like that
+        cherrypy.response.headers['USER'] = user_obj
+        return method(*args, **kwargs)
+
+    return wraper

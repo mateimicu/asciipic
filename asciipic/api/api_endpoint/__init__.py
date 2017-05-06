@@ -2,6 +2,7 @@
 
 from asciipic.api import base as base_api
 from asciipic.api.api_endpoint import version
+from asciipic.api.api_endpoint import auth_version
 from asciipic.api.api_endpoint import user
 
 
@@ -12,6 +13,7 @@ class APIEndpoint(base_api.BaseAPI):
     # A list that contains all the resources (endpoints) available for the
     # current metadata service
     resources = [
+        ("auth_version", auth_version.Version),
         ("version", version.Version),
         ("user", user.UserEndpoint)
     ]

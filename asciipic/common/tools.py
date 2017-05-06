@@ -3,6 +3,7 @@ import hashlib
 import random
 import time
 import string
+import functools
 
 
 from oslo_log import log as logging
@@ -114,3 +115,49 @@ class RedisConnection(object):
         """Return a Redis connection."""
         self.refresh()
         return self._rcon
+
+
+# pylint: disable=invalid-name
+class retry(object):
+    """Decorator that allow the method to be fail."""
+    def __init__(self, retry_count=constant.RETRY_COUNT,
+                 retry_delay=constant.RETRY_DELAY,
+                 exceptions=(Exception, )):
+        """Initializa the parameters.
+
+        :param retry_count: Now many times to try
+        :param retry_delay: Delay between tries
+        :param exception: The exception that sould be catched
+                          can be one exception or a tuple of exceptions
+        """
+        self._retry_count = retry_count
+        self._retry_delay = retry_delay
+        if isinstance(exceptions, tuple):
+            self._exceptions = exceptions
+        else:
+            self._exceptions = (exceptions, )
+
+    def __call__(self, method):
+        """Wrap the method.
+
+        :param method: The method we want ot wrap.
+        """
+        @functools.wraps(method)
+        def wrapper(*args, **kwargs):
+            result = None
+            for index in range(self._retry_count):
+                try:
+                    result = method(*args, **kwargs)
+                    break
+                # pylint: disable=catching-non-exception
+                except self._exceptions as ex:
+                    LOG.warn("Fail - %s in <%s.%s> with %s",
+                             index, method.__module__,
+                             method.__name__, ex)
+                    time.sleep(self._retry_delay)
+            else:
+                # Too many tries
+                raise exception.FailedTooManyTimes(method=method.__name__,
+                                                   module=method.__module__)
+            return result
+        return wrapper

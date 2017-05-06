@@ -4,7 +4,10 @@ import os
 import importlib
 import prettytable
 
+from oslo_log import log as logging
+
 from asciipic.common import exception
+LOG = logging.getLogger(__name__)
 
 
 def get_attribute(root, attribute):
