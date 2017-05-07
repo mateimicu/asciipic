@@ -73,18 +73,30 @@ class RedisConnection(object):
 
     """High level wrapper over the redis data structures operations."""
 
-    def __init__(self):
-        """Instantiates objects able to store and retrieve data."""
+    def __init__(self, **kwargs):
+        """Instantiates objects able to store and retrieve data.
+
+        :param host: The host for the redis connection
+        :param port: The port for the redis connection
+        :param db: The redis database
+        :param password: Password for the redis connection
+
+        If this parameters are not provided the config values will
+        be used.
+        """
         self._rcon = None
-        self._host = CONFIG.redis.host
-        self._port = CONFIG.redis.port
-        self._db = CONFIG.redis.database
+        self._host = kwargs.get("host", CONFIG.redis.host)
+        self._port = kwargs.get("port", CONFIG.redis.port)
+        self._db = kwargs.get("db", CONFIG.redis.database)
+        self._password = kwargs.get("password", CONFIG.redis.password)
         self.refresh()
 
     def _connect(self):
         """Try establishing a connection until succeeds."""
         try:
-            rcon = redis.StrictRedis(self._host, self._port, self._db)
+            rcon = redis.StrictRedis(host=self._host, port=self._port,
+                                     db=self._db,
+                                     password=self._password)
             # Return the connection only if is valid and reachable
             if not rcon.ping():
                 return None

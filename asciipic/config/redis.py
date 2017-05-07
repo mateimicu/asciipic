@@ -13,7 +13,7 @@ class RedisOptions(conf_base.Options):
         super(RedisOptions, self).__init__(config, group="redis")
         self._options = [
             cfg.StrOpt(
-                "host", default="127.0.0.1",
+                "host", default="127.0.0.1", required=True,
                 help="The IP address or the host name of the server."),
             cfg.IntOpt(
                 "port", default=6379, required=True,
@@ -22,6 +22,9 @@ class RedisOptions(conf_base.Options):
             cfg.IntOpt(
                 "database", default=0, required=True,
                 help="The name of the database that should be used."),
+            cfg.StrOpt(
+                "password", default=None,
+                help="Password for the redis connection."),
         ]
 
     def register(self):
