@@ -8,6 +8,7 @@ TASK_DONE = "done"
 TASK_FAILED = "failed"
 
 PID_TMP_FILE = "/tmp/asciipic.pid"
+PID_WORKER_TMP_FILE = "/tmp/asciipic-worker.pid"
 
 ORACLE_HOST = "ORACLE_HOST"
 ORACLE_PORT = "ORACLE_PORT"
