@@ -15,7 +15,7 @@ LOG = logging.getLogger(__name__)
 
 class OracleDBManager(object):
     def __init__(self):
-        url = constant.ORACLE_DB_URL_FORMAT.format(
+        self._url = constant.ORACLE_DB_URL_FORMAT.format(
             username=CONFIG.oracle.username,
             password=CONFIG.oracle.password,
             host=CONFIG.oracle.host,
@@ -23,17 +23,19 @@ class OracleDBManager(object):
             dbname=CONFIG.oracle.dbname)
         LOG.info(
             "Open OracleDB engine with %s",
-            url.replace(CONFIG.oracle.password,
-                        "*" * len(CONFIG.oracle.password)))
-        self._engine = sqlalchemy.create_engine(
-            url, convert_unicode=True, echo=True)
+            self._url.replace(CONFIG.oracle.password,
+                              "*" * len(CONFIG.oracle.password)))
+        self._engine = None
         self._base = None
         self._tables = {}
-        self._session_const = sessionmaker(bind=self._engine)
+        self._session_const = None
 
     @property
     def engine(self):
         """DB connection engine."""
+        if not self._engine:
+            self._engine = sqlalchemy.create_engine(
+                self._url, convert_unicode=True, echo=True)
         return self._engine
 
     @property
@@ -43,19 +45,25 @@ class OracleDBManager(object):
             self._base = declarative.declarative_base()
         return self._base
 
+    def register_base(self, base):
+        """Register the base."""
+        self._base = base
+
     @property
     def conn(self):
-        return self._engine.connect()
+        return self.engine.connect()
 
     @tools.retry(exceptions=sqlalchemy.exc.DatabaseError)
     def create_all(self, base):
         """Create all """
         if self._base != base:
             self._base = base
-        self._base.metadata.create_all(self._engine)
+        self._base.metadata.create_all(self.engine)
 
     @property
     def session(self):
+        if not self._session_const:
+            self._session_const = sessionmaker(bind=self.engine)
         return self._session_const()
 
     def register(self, table):

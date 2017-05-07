@@ -10,6 +10,8 @@ from asciipic.cli import base as cli_base
 from asciipic.common import constant
 from asciipic.common import exception
 from asciipic import config as asciipic_config
+from asciipic.db.oracle import base
+from asciipic.db.oracle import init
 
 
 LOG = logging.getLogger(__name__)
@@ -35,6 +37,10 @@ class Start(cli_base.Command):
 
     def _work(self):
         """Start the Asciipic API."""
+
+        # TODO(mmicu): Move this to the OracleDBManager
+        init.ORACLE_DB.register_base(base.META_BASE)
+
         pid = os.getpid()
         with open(constant.PID_TMP_FILE, "w") as file_handle:
             file_handle.write(str(pid))
