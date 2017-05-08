@@ -55,7 +55,7 @@ Este indicata generarea unui fisier de configurare prima data.
 ~ $ cd asciipic
 
 # create a virtual env for this project
-~ asciipic/ $ virtualenv .venv/asciipic
+~ asciipic/ $ virtualenv --python=python3 .venv/asciipic
 
 # activate the venv
 ~ asciipic/ $ source .venv/asciipic/bin/activate
