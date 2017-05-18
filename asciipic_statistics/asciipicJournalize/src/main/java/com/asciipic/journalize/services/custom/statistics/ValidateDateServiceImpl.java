@@ -1,6 +1,6 @@
 package com.asciipic.journalize.services.custom.statistics;
 
-import com.asciipic.journalize.model.InformationJSON;
+import com.asciipic.journalize.models.InformationJSON;
 import sun.net.util.IPAddressUtil;
 
 import java.text.DateFormat;
