@@ -40,6 +40,7 @@ class Start(cli_base.Command):
 
         # TODO(mmicu): Move this to the OracleDBManager
         init.ORACLE_DB.register_base(base.META_BASE)
+        init.ORACLE_DB.create_all(base.META_BASE)
 
         pid = os.getpid()
         with open(constant.PID_TMP_FILE, "w") as file_handle:
