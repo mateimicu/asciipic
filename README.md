@@ -146,3 +146,23 @@ Dupa ce s-a intalat proiectul putem sa il testam pronind local API-ul.
 ....
 ```
 Putem verifica acum la url-ul afisat(va depinde de fisierul de configurare) daca avem acces la api 
+
+Producer / Consumer example
+---------------------------
+Intr-un terminal rulati `asciipic worker start` pentru a porni un worker
+
+In alt terminal rulati task-ul exemplu
+```
+from rq import Queue
+
+from asciipic.worker import worker
+from asciipic.tasks import example_task
+
+# NOTE(mmicu): just a hack in order to get
+# the rededis connection
+w = worker.Worker()
+rc = w.rcon
+
+q = Queue(connection=rc , name="low")
+r = q.enqueue(example_task.ExampleTask())
+```

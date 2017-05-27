@@ -17,6 +17,7 @@ class AsciipicCli(cli_base.Application):
 
     commands = [
         (cli_commands.Server, "commands"),
+        (cli_commands.Worker, "commands"),
     ]
 
     def setup(self):

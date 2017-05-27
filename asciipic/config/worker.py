@@ -1,35 +1,40 @@
-"""Config options available for the redis database."""
+"""Config options available for the worker setup."""
 
 from oslo_config import cfg
 
 from asciipic.config import base as conf_base
 
 
-class RedisOptions(conf_base.Options):
+class WorkerOptions(conf_base.Options):
 
-    """Config options available for the asciipic setup."""
+    """Config options available for the worker setup."""
 
     def __init__(self, config):
-        super(RedisOptions, self).__init__(config, group="redis")
+        super(WorkerOptions, self).__init__(config, group="worker")
         self._options = [
             cfg.StrOpt(
-                "host", default="127.0.0.1", required=True,
+                "redis_host", default="127.0.0.1",
                 help="The IP address or the host name of the server."),
             cfg.IntOpt(
-                "port", default=6379, required=True,
+                "redis_port", default=6379, required=True,
                 help="The port that should be used by the current "
                      "metadata service."),
             cfg.IntOpt(
-                "database", default=0, required=True,
+                "redis_database", default=1, required=True,
                 help="The name of the database that should be used."),
             cfg.StrOpt(
-                "password", default=None,
-                help="Password for the redis connection."),
+                "redis_password", default=None,
+                help="Password for the connection."),
+            cfg.StrOpt(
+                "name", default=None, help="The name of the worker."),
+            cfg.MultiStrOpt(
+                "queues", default=['high', 'normal', 'low'], required=True,
+                help="Queues to listen on."),
         ]
 
     def register(self):
         """Register the current options to the global ConfigOpts object."""
-        group = cfg.OptGroup(self.group_name, title='Redis Options')
+        group = cfg.OptGroup(self.group_name, title='Worker Options')
         self._config.register_group(group)
         self._config.register_opts(self._options, group=group)
 
