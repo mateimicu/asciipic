@@ -26,6 +26,7 @@ class Users(object):
     @staticmethod
     def check_email(email):
         """Check if the credentials are valid for a new account."""
+        email = email.encode()
         try:
             session = ORACLE_DB.session
             users = session.query(USER).filter(USER.email.like(email)).count()
@@ -38,6 +39,7 @@ class Users(object):
     @staticmethod
     def check_username(username):
         """Check if the credentials are valid for a new account."""
+        username = username.encode()
         try:
             session = ORACLE_DB.session
             users = session.query(USER).filter(
@@ -51,6 +53,8 @@ class Users(object):
     @staticmethod
     def check_credentials(username, password):
         """Check if credentials of one user are """
+        username = username.encode()
+        password = password.encode()
         session = ORACLE_DB.session
         try:
             data = session.query(USER).filter(
@@ -71,6 +75,9 @@ class Users(object):
     def create_user(username, password, email):
         # TODO(mmicu): Jurnalieaza acest eveniment
         """Create a new user."""
+        username = username.encode()
+        password = password.encode()
+        email = email.encode()
         session = ORACLE_DB.session
         enc_password, salt = tools.hash_password(password)
         try:
@@ -104,6 +111,8 @@ class Users(object):
         :param username: The user name
         :param password: The password forthe username
         """
+        username = username.encode()
+        password = password.encode()
         session = ORACLE_DB.session
         redis_con = tools.RedisConnection()
         try:
