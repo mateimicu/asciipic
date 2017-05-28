@@ -17,7 +17,7 @@ public class ComposeImageDTOServiceImpl implements ComposeImageDTOService{
 
         for (Map.Entry<String, List<String>> entry : requestParams.entrySet()) {
             if (!isAValidKey(entry.getKey())) {
-                throw new Exception("Option " + entry.getKey() + " valid !");
+                throw new Exception("Option " + entry.getKey() + " invalid !");
             }
         }
         informationJSON.setSource(requestParams.get("source") == null ?"" : requestParams.get("source").get(0));
