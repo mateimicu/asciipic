@@ -1,8 +1,10 @@
 """Config options available for the redis database."""
+import os
 
 from oslo_config import cfg
 
 from asciipic.config import base as conf_base
+from asciipic.common import constant
 
 
 class RedisOptions(conf_base.Options):
@@ -25,6 +27,11 @@ class RedisOptions(conf_base.Options):
             cfg.StrOpt(
                 "password", default=None,
                 help="Password for the redis connection."),
+            cfg.StrOpt(
+                "url", default=os.getenv(constant.REDIS_URL_ENV),
+                help="Redis URL with all the params."
+                     "This option will take precedence over "
+                     "other parameters."),
         ]
 
     def register(self):

@@ -1,8 +1,10 @@
 """Config options available for the worker setup."""
+import os
 
 from oslo_config import cfg
 
 from asciipic.config import base as conf_base
+from asciipic.common import constant
 
 
 class WorkerOptions(conf_base.Options):
@@ -30,6 +32,11 @@ class WorkerOptions(conf_base.Options):
             cfg.MultiStrOpt(
                 "queues", default=['high', 'normal', 'low'], required=True,
                 help="Queues to listen on."),
+            cfg.StrOpt(
+                "url", default=os.getenv(constant.REDIS_URL_ENV),
+                help="Redis URL with all the params."
+                     "This option will take precedence over "
+                     "other parameters."),
         ]
 
     def register(self):
