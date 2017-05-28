@@ -1,6 +1,5 @@
-package com.asciipic.journalize.model;
+package com.asciipic.journalize.models;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
 
