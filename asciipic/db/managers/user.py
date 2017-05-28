@@ -180,7 +180,8 @@ class Users(object):
             # The token expired
             return userid
         try:
-            user = session.query(USER).filter(USER.id == userid).first()
+            user = [user for user in session.query(USER).filter(
+                USER.id == userid)].pop(0)
             LOG.info("For token <%s> we found user %s with id %s",
                      token_format, user, userid)
             return user
