@@ -1,9 +1,13 @@
+var TOKEN = null,
+    RETRY_COUNT = 5,
+    RETRY_DELAY = 60;
+
 function setSize()
 {
 	let height = $("#term-row").height() - $("footer").height() - 100;
 	$("#term").css("height", height);
 }
-var TOKEN = null;
+
 
 function send_login(command, terminal){
     // Send the login credentials
@@ -24,14 +28,86 @@ function send_login(command, terminal){
     });
 
     request.done(function(response){
-        if(response["content"]["token"]){
-            TOKEN = response["content"]["token"];
-            localStorage.setItem("TOKEN", TOKEN)
-            terminal.echo("Token :" + TOKEN);
+        if(response["meta"]["status"]){
+            if(response["content"]["token"]){
+                TOKEN = response["content"]["token"];
+                localStorage.setItem("TOKEN", TOKEN)
+                terminal.echo("Token :" + TOKEN);
+            }else{
+                terminal.echo(response["meta"]["verbose"]);
+            }
         }else{
             terminal.echo(response["meta"]["verbose"]);
         }
     });
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function wait_for_job(job_id, path, terminal){
+    // for for the jobs id
+    //
+    // @param job_id  
+    // If of the job to wait
+    //
+    // @param path
+    // The API endpoint to query
+    //
+    // @param terminatl
+    // Reference to the terminal
+    var fail = false,
+        done = false;
+    for(var i = 0; i<= RETRY_COUNT; i++){
+
+        if(fail)
+        {
+            terminal.echo("Can't reach the API.");
+            return null;
+        }
+
+        if(done)
+        {
+            console.log("Done waiting.")
+            return null;
+        }
+
+        sleep(RETRY_DELAY);
+
+        request = $.ajax({
+            async: false,
+            url: path + "/" + job_id,
+            method: "GET",
+            headers: {
+                "Authorization": TOKEN
+            },
+        });
+
+        request.fail(function( jqXHR, textStatus ) {
+            terminal.echo("Error: " + textStatus );
+            fail = true;
+        });
+
+        request.done(function(response){
+            if(response["meta"]["status"]){
+                // need to wait for the job to finish
+                var echo_id = response["meta"]["job_id"];
+                if(response["meta"]["job_status"] === "done"){
+                    terminal.echo(response["content"]);
+                    done = true;
+                }else
+                {
+                    console.log("Retry " + i);
+                    console.log(response);
+                }
+            }else{
+                terminal.echo(response["meta"]["verbose"]);
+                fail = true;
+            }
+        });
+
+    }
 }
 
 function send_echo(command, terminal){
@@ -54,7 +130,10 @@ function send_echo(command, terminal){
 
     request.done(function(response){
         if(response["meta"]["status"]){
-            terminal.echo(response["content"]);
+            // need to wait for the job to finish
+            var job_id = response["meta"]["job_id"];
+            terminal.echo("Id :"+job_id);
+            wait_for_job(job_id, "/api/echo")
         }else{
             terminal.echo(response["meta"]["verbose"]);
         }

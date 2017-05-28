@@ -172,13 +172,17 @@ class Users(object):
         redis_con = tools.RedisConnection()
         token_format = constant.TOKEN_FORMAT.format(token=token)
         userid = redis_con.rcon.get(token_format)
+
+        userid = userid.decode()
+
         if not userid:
             LOG.info("For token <%s> we did not found a user id", token_format)
             # The token expired
             return userid
         try:
-            user = session.query(USER).filter(USER.id.like(userid)).first()
-            LOG.info("For token <%s> we found user %s", token_format, user)
+            user = session.query(USER).filter(USER.id == userid).first()
+            LOG.info("For token <%s> we found user %s with id %s",
+                     token_format, user, userid)
             return user
         except exception.QueryError as ex:
             LOG.error("DB query for id: %s with token and got : %s",
