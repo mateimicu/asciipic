@@ -36,7 +36,7 @@ class Echo(base.BaseTask):
     def _work(self):
         """Override this with your desired procedures."""
         if self._sleep:
-            time.sleep(5)
+            time.sleep(2)
 
         return "Reply-Echo"
 
