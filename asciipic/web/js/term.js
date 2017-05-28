@@ -1,5 +1,5 @@
 var TOKEN = null,
-    RETRY_COUNT = 5,
+    RETRY_COUNT = 15,
     RETRY_DELAY = 60;
 
 function setSize()
@@ -93,7 +93,7 @@ function wait_for_job(job_id, path, terminal){
             if(response["meta"]["status"]){
                 // need to wait for the job to finish
                 var echo_id = response["meta"]["job_id"];
-                if(response["meta"]["job_status"] === "done"){
+                if(response["meta"]["job_status"] === "finished"){
                     terminal.echo(response["content"]);
                     done = true;
                 }else
@@ -133,7 +133,7 @@ function send_echo(command, terminal){
             // need to wait for the job to finish
             var job_id = response["meta"]["job_id"];
             terminal.echo("Id :"+job_id);
-            wait_for_job(job_id, "/api/echo")
+            wait_for_job(job_id, "/api/echo", terminal)
         }else{
             terminal.echo(response["meta"]["verbose"]);
         }
