@@ -3,8 +3,14 @@ import abc
 
 from oslo_log import log as logging
 import six
+import rq
+from rq import Queue
 
 from asciipic.common import exception
+from asciipic import config as asciipic_config
+from asciipic.common import tools
+
+CONFIG = asciipic_config.CONFIG
 
 LOG = logging.getLogger(__name__)
 
@@ -49,3 +55,24 @@ class BaseTask(object):
             self._on_task_done(result)
 
         return result
+
+
+def run_task(task):
+    """Run the task."""
+    redis_con = tools.RedisConnection(
+        host=CONFIG.worker.redis_host, port=CONFIG.worker.redis_port,
+        db=CONFIG.worker.redis_database,
+        password=CONFIG.worker.redis_password)
+    queue = Queue(name="high", connection=redis_con.rcon)
+    LOG.info("Queue task %s on queue %s", task, queue)
+    return queue.enqueue(task)
+
+
+def get_job_by_id(job_id):
+    """Return a job based on the id."""
+    redis_con = tools.RedisConnection(
+        host=CONFIG.worker.redis_host, port=CONFIG.worker.redis_port,
+        db=CONFIG.worker.redis_database,
+        password=CONFIG.worker.redis_password)
+    LOG.info("Get job with id %s", job_id)
+    return rq.job.Job.fetch(job_id, connection=redis_con.rcon)

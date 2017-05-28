@@ -37,6 +37,7 @@ def hash_password(password):
         alg=constant.HASHING_ALG,
         password=password,
         salt=salt)
+    password_template = password_template.encode()
     hashed_password = hashlib.sha256(password_template).hexdigest()
     return (hashed_password, salt)
 
@@ -54,6 +55,7 @@ def check_password(raw_password, enc_password, salt):
         alg=constant.HASHING_ALG,
         password=raw_password,
         salt=salt)
+    password_template = password_template.encode()
     hashed_password = hashlib.sha256(password_template).hexdigest()
     return enc_password == hashed_password
 
@@ -65,7 +67,7 @@ def generate_token(userid):
         userid=userid, time=time.time(), salt=salt)
 
     sha512 = hashlib.sha512()
-    sha512.update(token_template)
+    sha512.update(token_template.encode())
     return sha512.hexdigest()
 
 
