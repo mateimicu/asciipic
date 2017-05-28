@@ -31,10 +31,6 @@ Am estimat proiectul ca fiind unul de tip S care ar avea nevoie de 4 persoane pe
 ---
 
 Website: https://asciipic.xyz/
-Din pacate CD nu mai este activ deoarece oracle nu pote fi instalat cu buildback-urile de la Heroku. Desi am incercat
-sa creez custom buildback Heroku nu te lasa sa descarci jumate de internet doar pentru un amarat de oracle client
-(`cx_Oracle==5.2` necesita client-ul nativ de oracle care nu poate fi instalat usor ). Clientul `6.0b1` este mult mai usor 
-de instalat dar  din pacate nu este suportat de `SqlAlchemy`.
 
 
 Quick start
@@ -104,6 +100,7 @@ Pentru a instala oracle puteti urmari acest [tutorial](http://www.oracle.com/web
 O varianta mai usoara este sa folosim docker-engine pentru a porni un container cu oracle deja instalat.
 #####OracleDB in docker container 
 Pentru a instala docker puteti urmari [documentatia oficiala](https://docs.docker.com/engine/installation/).
+Un tutorial bun pentru python se poate gasi [aici](https://gist.github.com/kimus/10012910).
 Dupa ce aveti docker instalat puteti porni containerul ( creat special pentru aceasta aplicatie ) cu urmatoare comanda:
 ` docker run --name oracle-asciipic -d -p 8081:1521 matei10/asciipic_db:latest`
 
@@ -116,6 +113,17 @@ host = 127.0.0.1
 port = 6379
 database = 0
 ```
+
+##Heroku
+Pentru CD folosim [Heroku](http://herokuapp.com/) in care trebuie sa instalam clientul nativ de oracle.
+Cea mai sipla varianta e sa folosim doua buildpacks:
+- la indexul 1 `https://github.com/wealthsimple/oracle-heroku-buildpack`
+- la indexul 2 `heroku/python`
+
+Primul va instala clientul nativ pentru oracle al doilea va instala proiectul de python
+
+**Note** Putem folosi si buildpack-ul `multi-builpack` pentru a versiona pachetele
+
 
 Test the project
 ----------------
