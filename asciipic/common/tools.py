@@ -89,14 +89,22 @@ class RedisConnection(object):
         self._port = kwargs.get("port", CONFIG.redis.port)
         self._db = kwargs.get("db", CONFIG.redis.database)
         self._password = kwargs.get("password", CONFIG.redis.password)
+        self._url = kwargs.get("url", CONFIG.redis.url)
         self.refresh()
 
     def _connect(self):
         """Try establishing a connection until succeeds."""
         try:
-            rcon = redis.StrictRedis(host=self._host, port=self._port,
-                                     db=self._db,
-                                     password=self._password)
+            if self._url:
+                LOG.info("Using redis URL (%s) to connect.",
+                         constant.REDIS_URL_ENV)
+                rcon = redis.StrictRedis.from_url(self._url)
+            else:
+                LOG.info("Using separate config options to connect"
+                         " to redis.")
+                rcon = redis.StrictRedis(host=self._host, port=self._port,
+                                         db=self._db,
+                                         password=self._password)
             # Return the connection only if is valid and reachable
             if not rcon.ping():
                 return None
