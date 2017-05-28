@@ -1,0 +1,39 @@
+{
+  "name": "asciipic",
+  "description": "AsciiPic TW project",
+  "scripts": {
+  },
+  "env": {
+    "ORACLE_DBNAME": {
+      "required": true
+    },
+    "ORACLE_HOST": {
+      "required": true
+    },
+    "ORACLE_PASSWORD": {
+      "required": true
+    },
+    "ORACLE_PORT": {
+      "required": true
+    },
+    "ORACLE_USERNAME": {
+      "required": true
+    },
+    "REDIS_URL": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "heroku-redis"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/wealthsimple/oracle-heroku-buildpack"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
