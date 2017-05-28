@@ -140,6 +140,31 @@ function send_echo(command, terminal){
     });
 }
 
+function send_auth(command, terminal)
+{
+    var params = command.split(" ");
+
+    request = $.ajax({
+        async: false,
+        url: "/api/user/account",
+        method: "POST",
+        data: {
+            "username": params[1],
+            "password": params[2],
+            "email": params[3]
+        }
+    });
+
+    request.fail(function( jqXHR, textStatus ) {
+        terminal.echo("Error: " + textStatus );
+    });
+
+    request.done(function(response){
+        terminal.echo(response["meta"]["verbose"]);
+    });
+
+}
+
 
 (function() {
     'use strict';
@@ -152,6 +177,8 @@ function send_echo(command, terminal){
                 send_login(command, terminal);
             }else if(command.startsWith("echo")){
                 send_echo(command, terminal) 
+            }else if(command.startsWith("auth")){
+                send_auth(command, terminal) 
             }else{
                 // aici parsam restul comenzilor
             } // end for login
