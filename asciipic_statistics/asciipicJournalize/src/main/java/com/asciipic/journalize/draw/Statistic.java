@@ -76,7 +76,7 @@ public class Statistic extends JPanel {
 
         repaint();
 
-        String path = "images/image.jpg";
+        String path = "image.jpg";
         try {
             File outputFile = new File(path);
             ImageIO.write(this.image, "png", outputFile);
